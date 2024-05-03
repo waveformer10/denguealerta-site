@@ -1,0 +1,23 @@
+
+
+img.icon {
+    width: 64px;
+    height: 64px;
+    display: block;
+    margin: 0px auto;
+    margin-top: 10px;
+    border-radius: 100%;
+    box-sizing: border-box;
+    border: 2px solid crimson;
+}
+
+.title {
+    font-size: 1em;
+    min-width: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.title.expanded {
+    opacity: 0;
+}

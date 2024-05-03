@@ -1,0 +1,53 @@
+.layout-container {
+    display: flex;
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+    height: 100vh;
+    padding: 0px;
+    margin: 0px;
+}
+
+.layout-container > * {
+    height: 100%;
+}
+
+.layout-lateral {
+    width: 80px;
+}
+
+.layout-component {
+    width: calc(100% - 80px);
+    background: pink;
+}
+
+
+
+.layout-lateral {
+    position: relative;
+}
+
+.layout-lateral > * {
+    position: absolute;
+}
+
+.layout-lateral .layout-backdrop {
+    width: 100vw;
+    height: 100vh;
+    background-color: #0006;
+    z-index: 1000;
+}
+
+.layout-lateral-content {
+    height: 100vh;
+    width: 85px;
+    z-index: 2000;
+    background-color: #444;
+    color: white;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.layout-lateral-content.expanded {
+    width: 200px;
+}

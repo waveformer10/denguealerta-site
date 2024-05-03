@@ -1,0 +1,32 @@
+
+.message-data {
+    border-radius: 5px;
+    background-color: white;
+    margin: 10px;
+    padding: 5px;
+    position: relative;
+    min-height: 1.5em;
+    color: black;
+}
+
+.message-data * {
+    margin: 0;
+    padding: 0;
+}
+
+.message-data .red-ball {
+    border-radius: 100%;
+    position: absolute;
+    background-color: crimson;
+    height: 1em;
+    width: 1em;
+    top: 5px;
+    right: 5px;
+}
+
+.message-data:not(.expanded) .red-ball {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    right: unset;
+}
