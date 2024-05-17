@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import './Lateral.css';
 import BorderContext from '../contexts/border-context';
-import logo from './LogoDA.png';
+import logo from './img/LogoDA.png';
 
 const Lateral = ()  => {
   const { expanded } = useContext(BorderContext);

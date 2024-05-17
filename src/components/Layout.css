@@ -45,7 +45,7 @@
     height: 100vh;
     width: var(--sidebar-width);
     z-index: 2000;
-    background-color: #444;
+    background-color: #424f5e;
     color: white;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;

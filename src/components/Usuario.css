@@ -1,0 +1,10 @@
+.more{
+    background-color: #424f5e;
+    z-index: 20000;
+    right: 20px;
+    position: fixed;
+    top: 20px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
