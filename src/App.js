@@ -3,6 +3,7 @@ import Lateral from "./components/Lateral";
 import MessageData from "./components/MessageData";
 import "./App.css"
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
+import 'leaflet/dist/leaflet.css';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           </nav>
         </>
         }>
-        <MapContainer center={[-18.57500282606707, -46.514107349614726]} zoom={13} scrollWheelZoom={false}>
+        <MapContainer center={[-18.57500282606707, -46.514107349614726]} zoom={13} scrollWheelZoom={false} className="leaftlet-container">
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

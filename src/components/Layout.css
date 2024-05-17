@@ -6,6 +6,9 @@
     height: 100vh;
     padding: 0px;
     margin: 0px;
+
+    --sidebar-width: 200px;
+    --sidebar-width-expanded: 400px;
 }
 
 .layout-container > * {
@@ -13,11 +16,11 @@
 }
 
 .layout-lateral {
-    width: 80px;
+    width: var(--sidebar-width);
 }
 
 .layout-component {
-    width: calc(100% - 80px);
+    width: calc(100% - var(--sidebar-width));
     background: pink;
 }
 
@@ -40,7 +43,7 @@
 
 .layout-lateral-content {
     height: 100vh;
-    width: 85px;
+    width: var(--sidebar-width);
     z-index: 2000;
     background-color: #444;
     color: white;
@@ -49,5 +52,5 @@
 }
 
 .layout-lateral-content.expanded {
-    width: 200px;
+    width: var(--sidebar-width-expanded);
 }

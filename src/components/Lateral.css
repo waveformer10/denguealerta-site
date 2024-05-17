@@ -1,14 +1,11 @@
-
-
-img.icon {
-    width: 64px;
-    height: 64px;
+img.logo {
+    width: 80px;
+    height: 88px;
     display: block;
     margin: 0px auto;
     margin-top: 10px;
     border-radius: 100%;
     box-sizing: border-box;
-    border: 2px solid crimson;
 }
 
 .title {
