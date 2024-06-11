@@ -4,36 +4,31 @@ import './Usuario.css';
 import { useState } from "react";
 import ReactModal from "react-modal";
 import more from './img/more.png';
-const customStyles = {
-    modal : {
-      position: 'absolute',
-      top: '80px',
-      left: '80px',
-      right: '80px',
-      bottom: '80px', //setar largura e altura
-    },
-    overlay : {
-      position: 'fixed',
-      top: '0',
-      left: '0',
-      right: '0',
-      bottom: '0',
-      zIndex: '100000',
-      backgroundColor: '#0009',
-    }
-};
+import perfil from './img/perfil.jpg';
+import modalConfig from '../utilidades/modalConfig';
 const Usuario = (props) => {
     const [aberto, setAberto] = useState(false);
     return (
         <div>
-            <img src={more} className='more' alt="perfil" onClick={() => {setAberto(true);}}></img>
+            <img src={more} className='more' alt="more" onClick={() => {setAberto(true);}}></img>
             <ReactModal
                 isOpen={aberto}
                 ariaHideApp={false}
-                style={customStyles}
+                style={modalConfig}
                 shouldCloseOnOverlayClick={true}
                 onRequestClose={() => setAberto(false)}
             >
+                {/* <div>
+                    <h2>Conta</h2>
+                    <h2>Seguranca</h2>
+                    <h2>Sair</h2>
+                </div>
+                <div>
+                    <h1>Conta</h1>
+                    <img src={perfil} className='perfil'>JorgeADM</img>
+                    <h1>Endereco de Email</h1>
+                    <p>batata10@exemplo.com</p>
+                </div> */}
             </ReactModal>
         </div>
     );
