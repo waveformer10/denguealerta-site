@@ -32,7 +32,7 @@ function App() {
   
   // carregar pontos
   useEffect(() => {
-    const q = query(collection(db, 'ocorrencias'));
+    const q = query(collection(db, 'datas'));
     function load(){
       dispatch({ type: ACTIONS.LOADING, loading: true });
       onSnapshot(q, querySnapshot => {
@@ -41,8 +41,20 @@ function App() {
           type: ACTIONS.RELOAD,
           coordinates: querySnapshot.docs.map(item => {
             let data = item.data();
-            return { id: item.id, ...data, createdAt: new Date(data.createdAt.seconds * 1000) };
-          }),
+            let createdAt = null;
+            try {
+              let month = ('0' + (parseInt(data.month) + 1)).slice(-2);
+              createdAt = new Date(`${data.year}-${month}-${data.day}T${data.time}:00-03:00`)
+            } catch(err) {}
+            return {
+              id: item.id,
+              createdAt,
+              titulo: data.name,
+              descricao: data.obs,
+              lat: data.marker?.latitude,
+              lng: data.marker?.longitude,
+            };
+          }).filter(c => typeof c.lat == 'number' && typeof c.lng == 'number' && c.createdAt)
         });
       });
     }
