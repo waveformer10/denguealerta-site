@@ -5,6 +5,7 @@ import Usuario from "./components/Usuario";
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 import { useEffect, useReducer, useState } from "react";
 import ReactModal from "react-modal";
+import L from "leaflet";
 
 import "./App.css"
 import 'leaflet/dist/leaflet.css';
@@ -20,6 +21,11 @@ const daysToMs = (date) => {
   return 0;
 }
 
+const Icon = new L.icon({
+  iconUrl: require("./components/img/localizacao.png"),
+  iconSize: [50, 50]
+});
+
 function App() {
   const [aberto, setAberto] = useState(false);
   const [state, dispatch] = useReducer(coordinateReducer, defaultState());
@@ -33,7 +39,10 @@ function App() {
         dispatch({ type: ACTIONS.LOADING, loading: false });
         dispatch({
           type: ACTIONS.RELOAD,
-          coordinates: querySnapshot.docs.map(item => ({ id: item.id, ...item.data() })),
+          coordinates: querySnapshot.docs.map(item => {
+            let data = item.data();
+            return { id: item.id, ...data, createdAt: new Date(data.createdAt.seconds * 1000) };
+          }),
         });
       });
     }
@@ -82,7 +91,7 @@ function App() {
             {
               state.coordinates.map(item => {
                 return (
-                  <Marker position={[item.lat, item.lng]} key={item.id}>
+                  <Marker position={[item.lat, item.lng]} key={item.id} icon={Icon}>
                     <Popup>
                       <span
                         onClick={() => {
@@ -109,10 +118,12 @@ function App() {
             dispatch({ type: ACTIONS.SELECT, selected: undefined });
           }}
         >
-          <div className="box">
-            <h1 className="texto">{state.selected?.titulo}</h1>
-            <div className="mensagem">
-              {state.selected?.descricao}
+          <div className="modal-container">
+            <div className="box">
+              <h1 className="texto">{state.selected?.titulo}</h1>
+              <div className="mensagem">
+                {state.selected?.descricao}
+              </div>
             </div>
           </div>
         </ReactModal>

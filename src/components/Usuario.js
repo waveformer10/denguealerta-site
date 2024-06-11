@@ -18,17 +18,12 @@ const Usuario = (props) => {
                 shouldCloseOnOverlayClick={true}
                 onRequestClose={() => setAberto(false)}
             >
-                {/* <div>
-                    <h2>Conta</h2>
-                    <h2>Seguranca</h2>
-                    <h2>Sair</h2>
-                </div>
                 <div>
                     <h1>Conta</h1>
-                    <img src={perfil} className='perfil'>JorgeADM</img>
+                    <img src={perfil} className='perfil' alt='JorgeADM' />
                     <h1>Endereco de Email</h1>
                     <p>batata10@exemplo.com</p>
-                </div> */}
+                </div>
             </ReactModal>
         </div>
     );
